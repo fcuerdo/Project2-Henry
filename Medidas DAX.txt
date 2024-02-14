@@ -1,0 +1,287 @@
+Accidentes Mortales Motociclistas Año Actual = 
+CALCULATE(SUM(hechos_homicidios[N_VICTIMAS]),FILTER(hechos_homicidios,hechos_homicidios[victima] == "Moto"))
+
+
+Accidentes Mortales Motociclistas Año Anterior = 
+CALCULATE(
+    [Accidentes Mortales Motociclistas Año Actual],
+    DATEADD('calendario'[Fecha], -1, YEAR)
+)
+
+
+Homicidios por Comuna = 
+    CALCULATE(
+        [Total Victimas Homicidios],
+        ALLSELECTED(comunas[COMUNA]))
+
+
+Target Anual Motos = 
+    -0.07
+
+
+Target Semestral Var Mort = 
+-0.1
+
+
+Tasa Homicidios = 
+    (DIVIDE (
+        [Total Victimas Homicidios],
+        [Total Poblacion Anual])) *100000
+
+
+Tasa Homicidios Semestral = 
+VAR FechaActual = MAX( 'calendario'[Fecha] )
+VAR InicioSemestre =
+    IF(
+        MONTH( FechaActual ) <= 6,
+        DATE( YEAR( FechaActual ), 1, 1 ),
+        DATE( YEAR( FechaActual ), 7, 1 )
+    )
+VAR FinSemestre =
+    IF(
+        MONTH( FechaActual ) <= 6,
+        DATE( YEAR( FechaActual ), 6, 30 ), 
+        DATE( YEAR( FechaActual ), 12, 31 )
+    )
+RETURN
+    CALCULATE(
+        [Tasa Homicidios], 
+        FILTER(
+            ALL( 'calendario' ),
+             'calendario'[Fecha]  >= InicioSemestre &&  'calendario'[Fecha]  <= FinSemestre
+        )
+    )
+
+
+
+
+Tasa Homicidios Semestre Anterior = 
+VAR FechaActual = MAX( 'calendario'[Fecha] )
+VAR InicioSemestreActual =
+    IF(
+        MONTH( FechaActual ) <= 6,
+        DATE( YEAR( FechaActual ), 1, 1 ),
+        DATE( YEAR( FechaActual ), 7, 1 )
+    )
+VAR FinSemestreActual =
+    IF(
+        MONTH( FechaActual ) <= 6,
+        DATE( YEAR( FechaActual ), 6, 30 ),
+        DATE( YEAR( FechaActual ), 12, 31 )
+    )
+VAR InicioSemestreAnterior =
+    IF(
+        MONTH( FechaActual ) <= 6,
+        DATE( YEAR( FechaActual ) - 1, 7, 1 ),
+        DATE( YEAR( FechaActual ), 1, 1 )
+    )
+VAR FinSemestreAnterior =
+    IF(
+        MONTH( FechaActual ) <= 6,
+        DATE( YEAR( FechaActual ) - 1, 12, 31 ),
+        DATE( YEAR( FechaActual ), 6, 30 )
+    )
+RETURN
+    CALCULATE(
+        [Tasa Homicidios Semestral],
+        FILTER(
+            ALL( 'calendario' ),
+            'calendario'[Fecha] >= InicioSemestreAnterior && 'calendario'[Fecha] <= FinSemestreAnterior
+        )
+    )
+
+
+
+Total Victimas Homicidios = 
+    CALCULATE( 
+        SUM(hechos_homicidios[N_VICTIMAS]),
+        ALLSELECTED(calendario[Fecha])
+    )
+
+
+Variacion Accidentes Mortales Motociclistas = 
+IF(
+    [Accidentes Mortales Motociclistas Año Anterior] > 0,
+    DIVIDE(
+        [Accidentes Mortales Motociclistas Año Actual],
+        [Accidentes Mortales Motociclistas Año Anterior]
+        
+    )-1,
+    BLANK()
+)
+
+
+
+Variacion Tasa Homicidios Semestral = 
+VAR TasaActual = [Tasa Homicidios Semestral]
+VAR TasaAnterior = [Tasa Homicidios Semestre Anterior]
+VAR Diferencia = TasaActual - TasaAnterior
+VAR Variacion = IF(TasaAnterior <> 0, Diferencia / TasaAnterior, BLANK())
+
+RETURN
+    Variacion
+
+
+
+Accidentes Motociclistas Año Actual = 
+CALCULATE(SUM(hechos_lesiones[N_VICTIMAS]),FILTER(hechos_lesiones,hechos_lesiones[victima] == "Moto"))
+
+
+
+Accidentes Motociclistas Año Anterior = 
+CALCULATE(
+    [Accidentes Motociclistas Año Actual],
+    DATEADD('calendario'[Fecha], -1, YEAR)
+)
+
+
+
+
+Indice Accidentes Severos = 
+DIVIDE(
+    ([Total Victimas Homicidios] + [Victimas Graves]),
+    [Total Accidentes]
+)
+
+
+
+
+Target incidentes Severos = 
+    0.05
+
+
+
+Target Semestral Var Les = 
+    -0.10
+
+
+
+Tasa Lesiones = 
+    DIVIDE (
+        [Total Victimas Lesiones],
+        [Total Poblacion Anual]) * 100000
+
+
+
+
+Tasa Lesiones Semestral = 
+VAR FechaActual = MAX( 'calendario'[Fecha] )
+VAR InicioSemestre =
+    IF(
+        MONTH( FechaActual ) <= 6,
+        DATE( YEAR( FechaActual ), 1, 1 ),
+        DATE( YEAR( FechaActual ), 7, 1 )
+    )
+VAR FinSemestre =
+    IF(
+        MONTH( FechaActual ) <= 6,
+        DATE( YEAR( FechaActual ), 6, 30 ), 
+        DATE( YEAR( FechaActual ), 12, 31 )
+    )
+RETURN
+    CALCULATE(
+        [Tasa Lesiones], 
+        FILTER(
+            ALL( 'calendario' ),
+             'calendario'[Fecha]  >= InicioSemestre &&  'calendario'[Fecha]  <= FinSemestre
+        )
+    )
+
+
+
+Tasa Lesiones Semestre Anterior = 
+VAR FechaActual = MAX( 'calendario'[Fecha] )
+VAR InicioSemestreActual =
+    IF(
+        MONTH( FechaActual ) <= 6,
+        DATE( YEAR( FechaActual ), 1, 1 ),
+        DATE( YEAR( FechaActual ), 7, 1 )
+    )
+VAR FinSemestreActual =
+    IF(
+        MONTH( FechaActual ) <= 6,
+        DATE( YEAR( FechaActual ), 6, 30 ),
+        DATE( YEAR( FechaActual ), 12, 31 )
+    )
+VAR InicioSemestreAnterior =
+    IF(
+        MONTH( FechaActual ) <= 6,
+        DATE( YEAR( FechaActual ) - 1, 7, 1 ),
+        DATE( YEAR( FechaActual ), 1, 1 )
+    )
+VAR FinSemestreAnterior =
+    IF(
+        MONTH( FechaActual ) <= 6,
+        DATE( YEAR( FechaActual ) - 1, 12, 31 ),
+        DATE( YEAR( FechaActual ), 6, 30 )
+    )
+RETURN
+    CALCULATE(
+        [Tasa Lesiones Semestral],
+        FILTER(
+            ALL( 'calendario' ),
+            'calendario'[Fecha] >= InicioSemestreAnterior && 'calendario'[Fecha] <= FinSemestreAnterior
+        )
+    )
+
+
+
+Total Accidentes = 
+COUNTROWS('hechos_lesiones')
+
+
+
+
+Total Victimas Lesiones = 
+    CALCULATE( 
+        SUM(hechos_lesiones[N_VICTIMAS]),
+        ALLSELECTED(calendario[Fecha])
+    )
+
+
+
+Variacion Accidentes Motociclistas = 
+IF(
+    [Accidentes Motociclistas Año Anterior] > 0,
+    DIVIDE(
+        [Accidentes Motociclistas Año Actual],
+        [Accidentes Motociclistas Año Anterior]
+        
+    )-1,
+    BLANK()
+)
+
+
+
+Variacion Tasa Lesiones Semestral = 
+VAR TasaActual = [Tasa Lesiones Semestral]
+VAR TasaAnterior = [Tasa Lesiones Semestre Anterior]
+VAR Diferencia = TasaActual - TasaAnterior
+VAR Variacion = IF(TasaAnterior <> 0, Diferencia / TasaAnterior, BLANK())
+
+RETURN
+    Variacion
+
+
+
+Victimas Graves = 
+    CALCULATE(
+        [Total Victimas Lesiones],
+        hechos_lesiones[GRAVEDAD] = "Grave"
+        )
+
+
+
+
+Total Poblacion Anual = 
+VAR AnioSeleccionado = MAX('calendario'[Año])
+VAR Poblacion1 =
+    CALCULATE(
+        SUM('poblacion'[POBLACION]),
+        'calendario'[Año] = AnioSeleccionado
+    )
+RETURN
+    Poblacion1
+
+
+
