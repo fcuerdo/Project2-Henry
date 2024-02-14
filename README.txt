@@ -1,53 +1,51 @@
-<h1 align="center">Análisis de Siniestros Viales en Buenos Aires</h1>
-
-<p align="center">
-  <img src="path/to/logo_or_image" alt="Imagen descriptiva del proyecto">
-</p>
-
-![Estado del Proyecto](https://img.shields.io/badge/estado-en%20desarrollo-green)
-![Licencia](https://img.shields.io/badge/licencia-MIT-blue)
-![Tecnologías](https://img.shields.io/badge/tecnologías-Python%20|%20SQL%20|%20PowerBI-yellow)
-
-## Índice
-- [Descripción del Proyecto](#descripción-del-proyecto)
-- [Funcionalidades](#funcionalidades)
-- [Acceso al Proyecto](#acceso-al-proyecto)
-- [Tecnologías Utilizadas](#tecnologías-utilizadas)
-- [Contribuyentes](#contribuyentes)
-- [Autores](#autores)
-- [Licencia](#licencia)
+# Análisis de Siniestros Viales y Homicidios en Buenos Aires
 
 ## Descripción del Proyecto
-Este proyecto consiste en un análisis exhaustivo de los siniestros viales en la Ciudad Autónoma de Buenos Aires con el fin de aportar datos concretos para la mejora de la seguridad vial y la reducción de accidentes. Se realiza un EDA profundo y se generan visualizaciones interactivas para facilitar la interpretación de los datos.
+Este repositorio contiene la implementación de un sistema de análisis de datos para estudiar los siniestros viales y homicidios en la Ciudad de Buenos Aires. Utilizando datos desde 2016 hasta 2021, proporciona una visión detallada de las tendencias y patrones de estos incidentes críticos.
 
-## Funcionalidades
-- Extracción, transformación y carga (ETL) de datos utilizando Python.
-- Creación de una base de datos en MySQL para un manejo eficiente de la información.
-- Desarrollo de medidas DAX para análisis avanzados en Power BI.
-- Dashboards interactivos para visualización de KPIs y tendencias.
+## Contenido del Repositorio
+- **SQL Scripts**: Scripts para crear y estructurar la base de datos.
+- **Power BI Report**: Dashboards interactivos para visualizar siniestros viales y homicidios.
+- **Python ETL Process**: Scripts de Python para realizar la extracción, transformación y carga de datos.
+- **DAX Measures**: Fórmulas DAX utilizadas para cálculos analíticos en Power BI.
 
-<p align="center">
-  <img src="path/to/funcionalidad.gif" alt="Demostración de funcionalidades">
-</p>
+## Base de Datos
+La base de datos `acc_vial` contiene varias tablas estructuradas para albergar datos sobre homicidios y lesiones relacionadas con accidentes viales.
 
-## Acceso al Proyecto
-Puedes acceder al proyecto clonando este repositorio y siguiendo las instrucciones de instalación y configuración disponibles en la documentación.
+## Proceso ETL
+El proceso ETL se lleva a cabo a través de scripts en Python que:
+1. Extraen datos de fuentes como archivos de Excel.
+2. Transforman los datos limpiando y normalizando las entradas.
+3. Cargan los datos en la base de datos MySQL para su uso en Power BI.
 
-## Tecnologías Utilizadas
-- Python para scripting y automatización de ETL.
-- MySQL para la gestión de bases de datos.
-- Power BI para la creación de dashboards y visualizaciones.
-- DAX para el cálculo de medidas analíticas avanzadas.
+## Dashboards de Power BI
+Los dashboards proporcionan visualizaciones claras y detalladas de los datos, permitiendo a los usuarios explorar:
+- Tasas de lesiones y homicidios por año y mes.
+- Distribución geográfica de los siniestros.
+- Comparativas anuales y semestrales de accidentes mortales de motociclistas y otros vehículos.
 
-## Contribuyentes
-Agradecemos a todos los que han contribuido a este proyecto. [¡Vea la lista completa!](#)
+## KPIs y Métricas Calculadas
+Se calculan y monitorizan KPIs como:
+- `Accidentes Mortales Motociclistas`: Número de accidentes mortales involucrando motocicletas.
+- `Homicidios por Comuna`: Cantidad de homicidios desglosados por comuna.
+- `Tasa de Homicidios`: Tasa de homicidios normalizada por población.
+- `Variación de Accidentes`: Comparativa entre periodos de tiempo para determinar tendencias.
 
-## Autores
-- **[Tu Nombre](tu-perfil-de-github)** - *Trabajo Inicial* - *Mantenimiento* - *Documentación*
+## Instalación y Configuración
+Las instrucciones detalladas para la configuración del entorno y ejecución de los scripts están disponibles en los documentos asociados en este repositorio.
+
+## Contribución
+Si desea contribuir a este proyecto, por favor consulte las pautas en `CONTRIBUTING.md`.
 
 ## Licencia
-Este proyecto está bajo la Licencia MIT - vea el archivo [LICENSE.md](LICENSE) para detalles.
+Este proyecto está bajo la Licencia MIT. Consulte `LICENSE.md` para más detalles.
 
-<p align="center">
-  <img src="path/to/image" alt="Imagen del proyecto">
-</p>
+## Contacto
+Para preguntas o colaboraciones, puede contactar a los autores a través de los medios proporcionados en la sección de contactos.
+
+## EDA - Análisis de Calidad de Datos
+El Análisis Exploratorio de Datos (EDA) se centrará en la calidad de los datos, asegurando la integridad y exactitud de la información utilizada para el análisis.
+
+---
+
+**
