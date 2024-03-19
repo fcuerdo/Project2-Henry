@@ -1,4 +1,4 @@
-![image](https://github.com/fcuerdo/Project2-Henry/assets/33520476/7584af02-1e5d-4aff-b52f-93dd459f47d3)
+![wp9013291-status-logo-wallpapers](https://github.com/fcuerdo/Project2-Henry/assets/33520476/7584af02-1e5d-4aff-b52f-93dd459f47d3)
 
 
 # Análisis de Siniestros Viales y Homicidios en Buenos Aires
