@@ -1,3 +1,5 @@
+![istockphoto-973274388-612x612](https://github.com/fcuerdo/Project2-Henry/assets/33520476/5371552b-8c95-45ea-82e3-cf81ba71eb61)
+
 # Análisis de Siniestros Viales y Homicidios en Buenos Aires
 
 ## Descripción del Proyecto
