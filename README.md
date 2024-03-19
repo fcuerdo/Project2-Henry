@@ -38,17 +38,8 @@ Se calculan y monitorizan KPIs como:
 ## Instalación y Configuración
 Las instrucciones detalladas para la configuración del entorno y ejecución de los scripts están disponibles en los documentos asociados en este repositorio.
 
-## Contribución
-Si desea contribuir a este proyecto, por favor consulte las pautas en `CONTRIBUTING.md`.
-
-## Licencia
-Este proyecto está bajo la Licencia MIT. Consulte `LICENSE.md` para más detalles.
-
-## Contacto
-Para preguntas o colaboraciones, puede contactar a los autores a través de los medios proporcionados en la sección de contactos.
-
 ## EDA - Análisis de Calidad de Datos
-El Análisis Exploratorio de Datos (EDA) se centrará en la calidad de los datos, asegurando la integridad y exactitud de la información utilizada para el análisis.
+El Análisis Exploratorio de Datos (EDA) se centra en la calidad de los datos, asegurando la integridad y exactitud de la información utilizada para el análisis.
 
 ---
 
