@@ -14,7 +14,7 @@ Este repositorio contiene la implementación de un sistema de análisis de datos
 - **DAX Measures**: Fórmulas DAX utilizadas para cálculos analíticos en Power BI.
 
 ## Base de Datos
-La base de datos `acc_vial` contiene varias tablas estructuradas para albergar datos sobre homicidios y lesiones relacionadas con accidentes viales.
+Las bases de datos contienen varias tablas estructuradas para albergar datos sobre homicidios y lesiones relacionadas con accidentes viales.
 
 ## Proceso ETL
 El proceso ETL se lleva a cabo a través de scripts en Python que:
